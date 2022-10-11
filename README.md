@@ -44,9 +44,14 @@ Imagem para o desenvolvimento da atividade.
 
 ## Como usar 
 
+### Arquivo 
 * Baixe o arquivo .ipynb
-* importe o arquivo no jupyternotebook e execute
+* importe o arquivo no jupyternotebook ou google Colab e execute tudo
 
+### OpenCV 
+* Clone o repositorio
+* Verifique se o destinatario do video esta localizado no video capture
+* No terminal execute "python OpenCV.py"
 
 
 Libs para o desenvolvimento do projeto:
