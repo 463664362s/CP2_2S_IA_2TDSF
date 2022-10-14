@@ -40,8 +40,6 @@ Imagem para o desenvolvimento da atividade.
 
 <img src="/circulo.png" width="550">
 
-
-
 ## Como usar 
 
 ### Arquivo 
