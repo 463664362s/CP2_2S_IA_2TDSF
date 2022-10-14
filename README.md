@@ -44,11 +44,13 @@ Imagem para o desenvolvimento da atividade.
 
 ### Arquivo 
 * Baixe o arquivo .ipynb
-* importe o arquivo no jupyternotebook ou google Colab e execute tudo
+* importe o arquivo no jupyternotebook ou google Colab 
+* Faça upload da imagem circulo.png  
+* Rode o Script
 
 ### OpenCV 
 * Clone o repositorio
-* Verifique se o destinatario do video esta localizado no video capture
+* Coloco o destino do video n VideoCapture na linha 106
 * No terminal execute "python OpenCV.py"
 
 
