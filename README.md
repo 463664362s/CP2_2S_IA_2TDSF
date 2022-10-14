@@ -40,6 +40,10 @@ Imagem para o desenvolvimento da atividade.
 
 <img src="/circulo.png" width="550">
 
+## Video Execução
+
+https://user-images.githubusercontent.com/80040544/195914875-57606bc4-34a5-4637-9c54-3a8c09239cb7.mp4
+
 ## Como usar 
 
 ### Arquivo 
