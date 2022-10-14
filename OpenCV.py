@@ -19,24 +19,13 @@ def image_da_webcam(img):
 
     mask_hsv2 = cv2.inRange(img_hsv, image_lower_hsv2, image_upper_hsv2)
 
-    saida = cv2.bitwise_or(mask_hsv1,mask_hsv2)
-
-    contornos, _ = cv2.findContours(saida, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    mask_rgb = cv2.cvtColor(saida, cv2.COLOR_GRAY2RGB) 
-    contornos_img = mask_rgb.copy() 
-    cv2.drawContours(contornos_img, contornos, -1, [255, 0, 0], 3)
-
 
 
     contornosRed, _ = cv2.findContours(mask_hsv1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) 
-    mask_rgb = cv2.cvtColor(mask_hsv1, cv2.COLOR_GRAY2RGB) 
-    contornos_img_red = mask_rgb.copy()
-    cv2.drawContours(contornos_img_red, contornosRed, -1, [255, 0, 0], 3)
+    cv2.drawContours(img, contornosRed, -1, [255, 0, 0], 3)
 
     contornosCian, _ = cv2.findContours(mask_hsv2, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) 
-    mask_rgb = cv2.cvtColor(mask_hsv2, cv2.COLOR_GRAY2RGB) 
-    contornos_img_cian = mask_rgb.copy() 
-    cv2.drawContours(contornos_img_cian, contornosCian, -1, [255, 0, 0], 3)
+    cv2.drawContours(img, contornosCian, -1, [255, 0, 0], 3)
 
 
     maior = None
@@ -56,10 +45,9 @@ def image_da_webcam(img):
 
     
 
-    cv2.drawContours(contornos_img_red, [maior], -1, [0, 255, 0], 15)
-    cv2.drawContours(contornos_img_cian, [maior2], -1, [0, 255, 0], 15)
+    cv2.drawContours(img, [maior], -1, [0, 255, 0], 10)
+    cv2.drawContours(img, [maior2], -1, [0, 255, 0], 10)
 
-    saida = cv2.bitwise_or(contornos_img_cian,contornos_img_red)
 
     MRed = cv2.moments(maior)
     MCian = cv2.moments(maior2)
@@ -73,33 +61,29 @@ def image_da_webcam(img):
     size = 30
     color = (255,0,0)
 
-    cv2.line(contornos_img_cian,(cxCian - size,cyCian),(cxCian + size,cyCian),color,5)
-    cv2.line(contornos_img_cian,(cxCian,cyCian - size),(cxCian, cyCian + size),color,5)
+    cv2.line(img,(cxCian - size,cyCian),(cxCian + size,cyCian),color,5)
+    cv2.line(img,(cxCian,cyCian - size),(cxCian, cyCian + size),color,5)
 
     font = cv2.FONT_HERSHEY_SIMPLEX
     text = maior_area2, cyCian , cxCian
     origem = (1500,30)
 
-    cv2.putText(contornos_img_cian, str(text), origem, font,1,[255, 0, 0],2,cv2.LINE_AA)
+    cv2.putText(img, str(text), origem, font,1,[255, 0, 0],2,cv2.LINE_AA)
 
 
-    cv2.line(contornos_img_red,(cxRed - size,cyRed),(cxRed + size,cyRed),color,5)
-    cv2.line(contornos_img_red,(cxRed,cyRed - size),(cxRed, cyRed + size),color,5)
+    cv2.line(img,(cxRed - size,cyRed),(cxRed + size,cyRed),color,5)
+    cv2.line(img,(cxRed,cyRed - size),(cxRed, cyRed + size),color,5)
 
     font = cv2.FONT_HERSHEY_SIMPLEX
     text = maior_area, cyRed , cxRed
     origem = (0,30)
 
 
-    cv2.putText(contornos_img_red, str(text), origem, font,1,[255, 0, 0],2,cv2.LINE_AA)
+    cv2.putText(img, str(text), origem, font,1,[255, 0, 0],2,cv2.LINE_AA)
 
-
-    saida = cv2.bitwise_or(contornos_img_cian,contornos_img_red)
-
-    
     color = (0, 100, 0)
 
-    cv2.line(saida,(cxCian , cyCian),(cxRed , cyRed),color,5)
+    cv2.line(img,(cxCian , cyCian),(cxRed , cyRed),color,5)
 
     p_interno = (cxCian*cxRed)+(cyCian*cyRed)
     modulo_cian= math.sqrt(((cxCian**2) + (cyCian**2)))
@@ -113,10 +97,10 @@ def image_da_webcam(img):
     font = cv2.FONT_HERSHEY_SIMPLEX
     text = final 
     origem = (800,500)
-    cv2.putText(saida, str(text), origem, font,1,(200,0,0),2,cv2.LINE_AA)
-    cv2.line(saida,(cxCian , cyCian),(cxRed , cyRed),color,3)
+    cv2.putText(img, str(text), origem, font,1,(200,0,0),2,cv2.LINE_AA)
+    cv2.line(img,(cxCian , cyCian),(cxRed , cyRed),color,3)
 
-    return saida
+    return img
 
 cv2.namedWindow("preview")
 vc = cv2.VideoCapture('video.mp4')
