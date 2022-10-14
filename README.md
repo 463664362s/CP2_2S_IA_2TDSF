@@ -54,15 +54,13 @@ https://user-images.githubusercontent.com/80040544/195914875-57606bc4-34a5-4637-
 
 ### OpenCV 
 * Clone o repositorio
-* Coloco o destino do video n VideoCapture na linha 106
+* Coloque o destino do video em VideoCapture na linha 106
 * No terminal execute "python OpenCV.py"
 
+## Libs para o desenvolvimento do projeto:
 
-Libs para o desenvolvimento do projeto:
-
-
-- import cv2
-- from matplotlib import pyplot as plt
-- import numpy as np
-- import math
+- cv2
+- matplotlib 
+- numpy 
+- math
 
