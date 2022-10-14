@@ -85,13 +85,11 @@ def image_da_webcam(img):
 
     cv2.line(img,(cxCian , cyCian),(cxRed , cyRed),color,5)
 
-    p_interno = (cxCian*cxRed)+(cyCian*cyRed)
-    modulo_cian= math.sqrt(((cxCian**2) + (cyCian**2)))
-    modulo_red = math.sqrt(((cxRed**2) + (cyRed**2)))
-    angulo= p_interno/(modulo_cian*modulo_red)
+    y = cyRed-cyCian
+    x = cxRed-cxCian
+    angulo = math.atan2(y,x)
 
-    angulo_final= math.acos(angulo) 
-    final= round(math.degrees(angulo_final),2)
+    final= round(math.degrees(angulo),2)
 
 
     font = cv2.FONT_HERSHEY_SIMPLEX
